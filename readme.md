@@ -287,7 +287,8 @@ Incluye:
 
 # Autor
 
-**Sergio Cruz**
+**Sergio Cruz** \
+📨 sergiocrtr@unisabana.edu.co
 
 Proyecto académico desarrollado para el curso de Pruebas Unitarias y Verificación de Software.
 
