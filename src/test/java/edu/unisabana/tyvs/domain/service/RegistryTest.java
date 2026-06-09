@@ -3,6 +3,7 @@ package edu.unisabana.tyvs.domain.service;
 import edu.unisabana.tyvs.domain.model.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -165,6 +166,45 @@ public class RegistryTest {
         RegisterResult result = registry.registerVoter(person);
 
         assertEquals(RegisterResult.INVALID, result);
+    }
+
+    @Test
+    public void shouldRejectDuplicatedPerson() {
+
+        Registry registry = new Registry();
+
+        Person person = new Person(
+                "Juan",
+                1,
+                25,
+                Gender.MALE,
+                true);
+
+        // First registration
+        RegisterResult firstResult = registry.registerVoter(person);
+
+        // Second registration
+        RegisterResult secondResult = registry.registerVoter(person);
+
+        assertEquals(RegisterResult.VALID, firstResult);
+        assertEquals(RegisterResult.DUPLICATED, secondResult);
+    }
+
+    @Test
+    public void shouldReturnPersonAttributes() {
+
+        Person person = new Person(
+                "Ana",
+                1,
+                25,
+                Gender.FEMALE,
+                true);
+
+        assertEquals("Ana", person.getName());
+        assertEquals(Gender.FEMALE, person.getGender());
+        assertEquals(1, person.getId());
+        assertEquals(25, person.getAge());
+        assertTrue(person.isAlive());
     }
 
 }

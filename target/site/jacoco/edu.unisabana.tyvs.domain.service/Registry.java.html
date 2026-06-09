@@ -24,16 +24,16 @@ import java.util.Set;
 <span class="fc" id="L24">            return RegisterResult.DEAD;</span>
         }
 
-<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (person.getAge() &gt; 120) {</span>
-<span class="nc" id="L28">            return RegisterResult.INVALID_AGE;</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (person.getAge() &gt; 120) {</span>
+<span class="fc" id="L28">            return RegisterResult.INVALID_AGE;</span>
         }
 
 <span class="fc bfc" id="L31" title="All 2 branches covered.">        if (person.getAge() &lt; 18) {</span>
 <span class="fc" id="L32">            return RegisterResult.UNDERAGE;</span>
         }
 
-<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (registeredIds.contains(person.getId())) {</span>
-<span class="nc" id="L36">            return RegisterResult.DUPLICATED;</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (registeredIds.contains(person.getId())) {</span>
+<span class="fc" id="L36">            return RegisterResult.DUPLICATED;</span>
         }
 
 <span class="fc" id="L39">        registeredIds.add(person.getId());</span>
