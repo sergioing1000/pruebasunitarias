@@ -4,5 +4,7 @@ public enum RegisterResult {
     VALID,
     DUPLICATED,
     INVALID,
-    DEAD
+    DEAD,
+    UNDERAGE,
+    INVALID_AGE
 }
