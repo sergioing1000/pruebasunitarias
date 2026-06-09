@@ -118,5 +118,54 @@ public class RegistryTest {
         assertEquals(RegisterResult.VALID, result);
     }
 
+    @Test
+    public void shouldRejectInvalidAgeOver120() {
+
+        Registry registry = new Registry();
+
+        Person person = new Person(
+                "Juan",
+                1,
+                121,
+                Gender.MALE,
+                true);
+
+        RegisterResult result = registry.registerVoter(person);
+
+        assertEquals(RegisterResult.INVALID_AGE, result);
+    }
+
+    @Test
+    public void shouldRejectWhenIdIsZero() {
+        Registry registry = new Registry();
+
+        Person person = new Person(
+                "Juan",
+                0,
+                25,
+                Gender.MALE,
+                true);
+
+        RegisterResult result = registry.registerVoter(person);
+
+        assertEquals(RegisterResult.INVALID, result);
+    }
+
+    @Test
+    public void shouldRejectWhenIdIsNegative() {
+        Registry registry = new Registry();
+
+        Person person = new Person(
+                "Juan",
+                -5,
+                25,
+                Gender.MALE,
+                true);
+
+        RegisterResult result = registry.registerVoter(person);
+
+        assertEquals(RegisterResult.INVALID, result);
+    }
+
 }
 
