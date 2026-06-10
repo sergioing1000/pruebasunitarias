@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RegistryTest {
-
     @Test
     public void shouldRegisterValidPerson() {
         // Arrange: preparar los datos y el objeto a probar
@@ -22,7 +21,6 @@ public class RegistryTest {
         // Assert: verificar el resultado esperado
         Assert.assertEquals(RegisterResult.VALID, result);
     }
-
     @Test
     public void shouldRejectDeadPerson() {
 
@@ -39,8 +37,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.DEAD, result);
     }
-
-
     @Test
     public void shouldReturnInvalidWhenPersonIsNull() {
 
@@ -50,7 +46,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.INVALID, result);
     }
-
     @Test
     public void shouldRejectWhenIdIsZeroOrNegative() {
 
@@ -67,7 +62,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.INVALID, result);
     }
-
     @Test
     public void shouldRejectUnderageAt17() {
 
@@ -84,7 +78,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.UNDERAGE, result);
     }
-
     @Test
     public void shouldAcceptAdultAt18() {
 
@@ -101,7 +94,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.VALID, result);
     }
-
     @Test
     public void shouldAcceptMaxAge120() {
 
@@ -118,7 +110,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.VALID, result);
     }
-
     @Test
     public void shouldRejectInvalidAgeOver120() {
 
@@ -135,7 +126,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.INVALID_AGE, result);
     }
-
     @Test
     public void shouldRejectWhenIdIsZero() {
         Registry registry = new Registry();
@@ -151,7 +141,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.INVALID, result);
     }
-
     @Test
     public void shouldRejectWhenIdIsNegative() {
         Registry registry = new Registry();
@@ -167,7 +156,6 @@ public class RegistryTest {
 
         assertEquals(RegisterResult.INVALID, result);
     }
-
     @Test
     public void shouldRejectDuplicatedPerson() {
 
@@ -189,7 +177,6 @@ public class RegistryTest {
         assertEquals(RegisterResult.VALID, firstResult);
         assertEquals(RegisterResult.DUPLICATED, secondResult);
     }
-
     @Test
     public void shouldReturnPersonAttributes() {
 
